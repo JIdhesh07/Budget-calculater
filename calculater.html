@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<body >
+    <div class="jv">
+        <img style="width: 1600px; height: 720px;" src="./desktop-wallpaper-dark-money-money-black.jpg" alt="">
+        
+
+        <div style="margin-left: 50px;margin-top: -350px; height: 50px; margin-left: 230px;width:350px;" class="row;form-control">
+    
+            <div style="width: px;background: rgba(216, 207, 207, 0.3) ;backdrop-filter: blur(15px);border-radius: 20px; height: 260px;" class="col-12 mt-5 border border-1 ">
+                <br>
+                <h1  style="margin-left: 90px; color: rgb(18, 17, 16);">Expense</h1>
+                <p style="margin-left: 60px;"></p>
+        
+                <input id="exptyp" type="text" class="form-control" placeholder="Expense Type" style="width: 250px; margin-left: 50px;">
+                <br>
+         <input id="expamt" type="text" class="form-control" placeholder="Amount" style="width: 250px; margin-left: 50px;">
+        <br>
+    
+        <button onclick="addExp()" style="width: 80px; margin-left: 150px; background-color: rgb(255, 255, 255); color: rgb(5, 7, 7);" class="form-control">Submit</button>
+        <br>
+        <br>
+        
+        
+            </div>
+        
+        </div>
+        
+    
+
+        
+    
+
+
+
+
+
+
+
+        
+        <div style="margin-left: 30px;margin-top: -400px; height: 200px; margin-left: 220px;width:350px;" class="row;form-control">
+    
+            <div style="width: px;background: rgba(216, 207, 207, 0.3) ;backdrop-filter: blur(15px);border-radius: 30px; height: 260px;" class="col-12 mt-5 border border-1 ">
+                <br>
+                <h1  style="margin-left: 70px; color: rgb(18, 17, 16);">Add Money</h1>
+                <p style="margin-left: 60px;"></p>
+        
+                <input id="inctyp" type="text" class="form-control" placeholder="Enter Income Type" style="width: 250px; margin-left: 50px;">
+                <br>
+        
+         <input id="incamt" type="text" class="form-control" placeholder="Amount" style="width: 250px; margin-left: 50px;">
+        <br>
+    
+        <button onclick="addIncme()" style="width: 80px; margin-left: 150px; background-color: rgb(20, 17, 16); color: azure;" class="form-control">Add</button>
+        <br>
+        <br>
+        
+        
+            </div>
+        
+        </div>
+        
+        
+
+        
+    </div>
+<h1  class="" style="color: aliceblue; margin-top: -300px; align-items: center;margin-left: 600px;" >Budget Calculator</h1>
+
+
+<div class="row">
+    <div style="margin-left: 750px; margin-top: 100px; width: 700px; height: 400px;" class="col-4 border border-3">
+        
+        
+    <div style="width: 300px; height: 250px; margin-left: 345px; margin-top: 47px;margin-bottom: 200px;" class="card text-bg-dark">
+        <img src="" class="card-img" alt="">
+        <div class="card-img-overlay">
+          <h5 class="card-title">SPEND</h5>
+          <h2 id="balamt" style="margin-left: 80px;margin-top: 50px;" class="card-text;">RS.0</h2>
+          <p class="card-text"><small></small></p>
+        </div>
+      </div>
+    </div>
+    <div style="width: 300px; height: 250px; margin-left: 800px; margin-top: -350px; background-color: azure; margin-right: 100px;" class="card text-bg-">
+        <img src="" class="card-img" alt="">
+        <div class="card-img-overlay">
+          <h5 class="card-title">BALANCE</h5>
+          <h2 id="sptamt" style="margin-left: 80px;margin-top: 50px;" class="card-text">RS.0</h2>
+          <p class="card-text"><small></small></p>
+        </div>
+      </div>
+
+
+   
+      <button onclick="clr()"  class="form-control" style="color: azure; background-color: black;margin-left: 1060px; width: 100px;margin-top: -50px; height:40px; ">clear</button>
+    </div>
+    <button  onclick="logout()" style="color: azure; background-color: black;margin-top: 100px;margin-left: 1400px;">logout</button>
+</div>
+</div>
+
+
+</div>
+<img style="width: 150px; margin-left: 764px; margin-top: -1170px;" src="./Book-Pattern-Projects-unscreen.gif" alt="">
+
+<a href="./index.html"><img style="width: 200px; margin-left: 1380px; margin-top: -115px;" src="./Power-Switch-unscreen.gif" alt="" ></a>
+
+<script>
+     var balance = 0
+    var exp = 0
+
+    function addIncme() {
+        const type = document.getElementById('inctyp').value
+        const income = parseFloat(document.getElementById('incamt').value)
+        console.log(income);
+        console.log(type);
+
+        balance += income
+        alert('Income added Successfully')
+        document.getElementById('balamt').innerHTML = `Your balance is ${balance}`
+
+    }
+    function addExp() {
+        const expense = parseFloat(document.getElementById('expamt').value)
+        alert('Expense added successfully')
+        exp += expense
+        balance -= exp
+        document.getElementById('sptamt').innerHTML = `Your expense is ${exp}`
+        document.getElementById('balamt').innerHTML = `Your balnce is ${balance}`
+    }
+
+    function clr() {
+        // sptamt.innerHTML=""
+        // balamt.innerHTML=""
+        inctyp.value=""
+        incamt.value=""
+        exptyp.value=""
+        expamt.value=""
+
+    }
+    function logout() {
+        window.location='./index.html'
+        inctyp.value=""
+        incamt.value=""
+        exptyp.value=""
+        expamt.value=""
+    }
+    
+</script>
+
+</body>
+</html>
